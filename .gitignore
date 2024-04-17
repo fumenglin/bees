@@ -1,0 +1,6 @@
+/target
+.idea
+/vendor
+./target
+./vendor
+.git

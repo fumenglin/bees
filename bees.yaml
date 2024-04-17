@@ -1,0 +1,22 @@
+server:
+  ip: 127.0.0.1 #当前平台当前服务的对外注册的IP
+  port: 7601  # 当前平台服务的对外提供的端口号
+
+local:
+  es: http://elastic:123456@es@192.168.122.113:9200  #所需的es的链接地址： http://用户:密码@es_ip:es_port
+  kafka:
+    brokers: 192.168.123.244:9092  #当前平台的kafka
+    topic: dwb_threat_info_sync  #topic
+
+
+# 以下为该服务各个平台的地址，
+tree:
+  name: 共性
+  addr: 127.0.0.1:7601
+  next:
+    - name: 运营1
+      addr: 127.0.0.1:7602
+      next:
+        - name: 运营1-赋能1
+          addr: 127.0.0.1:7603
+          next:

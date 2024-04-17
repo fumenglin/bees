@@ -1,0 +1,33 @@
+[source.crates-io]
+replace-with ="rsproxy-sparse"  #'rsproxy-sparse' # 指定使用下面哪个源，修改为source.后面的内容即可
+# 当执行 cargo vendor的时候，上面需要修改为： replace-with = 'tuna'   当cargo build 根据本地vendor编译的时候需要更改为： replace-with = 'vendored-sources' 编码依赖本地vendor
+# 中国科学技术大学
+[source.ustc]
+registry = "https://mirrors.ustc.edu.cn/crates.io-index"
+
+# 上海交通大学
+[source.sjtu]
+registry = "https://mirrors.sjtug.sjtu.edu.cn/git/crates.io-index/"
+
+# 清华大学
+[source.tuna]
+registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
+
+# rustcc社区
+[source.rustcc]
+registry = "https://code.aliyun.com/rustcc/crates.io-index.git"
+
+
+# 字节源 rsproxy-sparse
+
+[source.rsproxy]
+registry = "https://rsproxy.cn/crates.io-index"
+[source.rsproxy-sparse]
+registry = "sparse+https://rsproxy.cn/index/"
+[registries.rsproxy]
+index = "https://rsproxy.cn/crates.io-index"
+[net]
+git-fetch-with-cli = true
+
+[source.vendored-sources]
+directory = "vendor"

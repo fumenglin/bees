@@ -1,0 +1,65 @@
+[package]
+name = "bees"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[profile.release]
+opt-level = 3
+debug = false
+split-debuginfo = '...'  # Platform-specific.
+strip = "none"
+debug-assertions = false
+overflow-checks = false
+lto = false
+panic = 'unwind'
+incremental = false
+codegen-units = 16
+rpath = false
+
+[profile.dev]
+opt-level = 0
+debug = true
+split-debuginfo = '...'  # Platform-specific.
+debug-assertions = true
+overflow-checks = true
+lto = false
+panic = 'unwind'
+incremental = true
+codegen-units = 256
+rpath = false
+
+
+[dependencies]
+#http服务
+axum = "0.7.5"
+hyper = { version = "1.0.0", features = ["full"] }
+hyper-util = { version = "0.1.1", features = ["client-legacy"] }
+tokio = { version = "1", features = ["full"] }
+tower = { version = "0.4.13" }
+tower-http = { version = "0.5.2", features = ["cors"] }
+
+#json
+serde = { version = "1.0.197", features = ["derive"] }
+serde_json = "1.0.114"
+serde_yaml = "0.9.32"
+
+clap = { version = "4.5.3", features = ["derive"] }
+
+urlencoding = { version = "2.1.3" }
+
+#日志模块引用
+tracing = "0.1.40"
+tracing-subscriber = { version = "0.3.18", features = ["env-filter", "local-time"] }
+
+#nacos
+nacos-sdk = { version = "0.3.5", features = ["default"] }
+url = "2.5.0"
+log = "0.4.21"
+
+
+kafka = { version = "0.10.0", features = ["default"] }
+elasticsearch = "7.17.7-alpha.1"
+time = "0.3.34"
+bytes = "1.6.0"
+
